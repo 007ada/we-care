@@ -15,15 +15,13 @@ class AdminServiceImpl extends AdminService {
   val db = DBConnect.db
 
   def addHospitalDBIO(): DBIO[String] =
-    (hospitalQuery += Hospital(-1L, "qw", "qw", "Qw")).map(x => x match {
-      case i: Int => "Success" + i;
-      case _ => throw new Exception("Some thing went wrong")
-    })
+    (hospitalQuery += Hospital(-1L, "qw", "qw", "Qw")).map {
+      i: Int => "Success" + i;
+    }
 
 
   override def addHospital(): Future[String] =
     DBConnect.exec(addHospitalDBIO())
-
 
 }
 
