@@ -14,7 +14,7 @@ import play.api.libs.concurrent.Futures._
 class HomeController @Inject()(val controllerComponents: ControllerComponents, adminService: AdminService) extends BaseController {
 
   def index(): Action[AnyContent] = Action { implicit request: Request[AnyContent] =>
-    Ok(views.html.index())
+    Ok("SUCCESS")
   }
 
 
